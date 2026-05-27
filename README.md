@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🤖 Personal MCP Server
 
-## Getting Started
+A personal [Model Context Protocol](https://modelcontextprotocol.io) server that exposes my resume data as queryable tools for any MCP-compatible AI client (like Claude Desktop).
 
-First, run the development server:
+Point an LLM at this server and it can answer questions like:
+- *"Write a cover letter for this job based on Ansh's background."*
+- *"What projects show Ansh can ship mobile apps?"*
+- *"Where has Ansh used AI APIs across his work?"*
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## 🛠️ Tools
+
+| Tool | Description |
+|------|-------------|
+| `get_profile` | Name, title, summary, location, and social links |
+| `list_projects` | All projects, filterable by technology or tag |
+| `get_project` | Full detail for a single project by ID |
+| `list_experience` | Work history, optionally filtered by technology |
+| `list_skills` | Skills grouped by category |
+| `search_by_technology` | Cross-reference projects + experience by tech |
+| `get_resume_snapshot` | Full data dump for open-ended questions |
+
+---
+
+## 🔌 MCP Endpoint
+
+```
+POST /api/mcp
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Stateless JSON-RPC 2.0 over HTTP — no SSE or persistent connections needed.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+To connect via **Claude Desktop**, add this to your `claude_desktop_config.json`:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```json
+{
+  "mcpServers": {
+    "ansh": {
+      "url": "https://your-deployed-url.vercel.app/api/mcp"
+    }
+  }
+}
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Running Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm install
+npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open [http://localhost:3000](http://localhost:3000) to see the server status page.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🗂️ Project Structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+app/
+  page.tsx            Landing page with server info and tool list
+  api/mcp/route.ts    MCP JSON-RPC endpoint
+
+lib/
+  tools.ts            Tool definitions and handlers
+  data/
+    profile.ts        Bio, links, contact
+    projects.ts       Project entries
+    experience.ts     Work experience
+    skills.ts         Technical skills by category
+```
+
+---
+
+## 📦 Stack
+
+- **[Next.js 16](https://nextjs.org)** — framework and API routes
+- **[TypeScript](https://www.typescriptlang.org)** — end-to-end type safety
+- **[Tailwind CSS v4](https://tailwindcss.com)** — landing page styling
+- **[MCP SDK](https://github.com/modelcontextprotocol/typescript-sdk)** — protocol types
