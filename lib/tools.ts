@@ -27,8 +27,8 @@ export const tools: Tool[] = [
   {
     name: "get_profile",
     description:
-      "Returns Ansh's basic profile: name, title, summary, location, email, and social links. " +
-      "Use this first to get an overview of who Ansh is.",
+      "Returns Ansh's basic profile: name, title, summary, hobbies, location, email, and social links. " +
+      "Use this first to get an overview of who Ansh is, including personal interests and hobbies.",
     inputSchema: { type: "object", properties: {} },
     handler: async () => text(profile),
   },
@@ -37,7 +37,7 @@ export const tools: Tool[] = [
     name: "list_projects",
     description:
       "Returns Ansh's projects. Optionally filter by technology or tag. " +
-      "Each project includes description, tech stack, tags, and resume-style highlights.",
+      "Each project includes name, description, tech stack, tags, resume-style highlights, period, and links (url, github) where available.",
     inputSchema: {
       type: "object",
       properties: {
@@ -47,7 +47,7 @@ export const tools: Tool[] = [
         },
         tag: {
           type: "string",
-          description: "Filter by tag, e.g. 'AI', 'mobile', 'fullstack', 'developer-tools'",
+          description: "Filter by tag, e.g. 'AI', 'mobile', 'fullstack', 'e-commerce', 'health', 'LLM', 'desktop', 'iOS', 'consumer', 'social', 'frontend'",
         },
       },
     },
@@ -104,7 +104,7 @@ export const tools: Tool[] = [
   {
     name: "list_experience",
     description:
-      "Returns Ansh's work experience entries, including role, company, period, technologies used, " +
+      "Returns Ansh's work experience entries, including role, company, period, description, technologies used, " +
       "and resume-style achievement bullets.",
     inputSchema: {
       type: "object",
@@ -130,7 +130,7 @@ export const tools: Tool[] = [
   {
     name: "list_skills",
     description:
-      "Returns Ansh's technical skills organized by category (Languages, Frontend, Backend, AI, etc.).",
+      "Returns Ansh's technical skills organized by category (Languages, Frameworks/Libraries/Platforms, Tools).",
     inputSchema: {
       type: "object",
       properties: {

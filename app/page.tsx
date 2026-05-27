@@ -4,13 +4,13 @@ import { skills } from "@/lib/data/skills";
 import { experience } from "@/lib/data/experience";
 
 const TOOLS = [
-  { name: "get_profile", desc: "Name, title, summary, links" },
-  { name: "list_projects", desc: "Filter by tech, tag, or status" },
+  { name: "get_profile", desc: "Name, title, summary, hobbies, location, email, and social links" },
+  { name: "list_projects", desc: "Projects with tech, tags, highlights, and links — filter by tech or tag" },
   { name: "get_project", desc: "Full detail for one project by ID" },
-  { name: "list_experience", desc: "Work history, optionally filtered by tech" },
-  { name: "list_skills", desc: "Skills grouped by category" },
-  { name: "search_by_technology", desc: "Cross-reference projects + experience" },
-  { name: "get_resume_snapshot", desc: "Full data dump for open-ended questions" },
+  { name: "list_experience", desc: "Work history with highlights — filterable by technology" },
+  { name: "list_skills", desc: "Skills grouped by category: Languages, Frameworks, Tools" },
+  { name: "search_by_technology", desc: "Cross-reference projects + experience by technology" },
+  { name: "get_resume_snapshot", desc: "Full data dump — profile, skills, experience, and projects" },
 ];
 
 export default function Home() {

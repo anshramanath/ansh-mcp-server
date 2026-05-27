@@ -23,25 +23,45 @@ Point an LLM at this server and it can answer questions like:
 
 ---
 
-## 🔌 MCP Endpoint
+## 🔌 Connecting to the Server
+
+The MCP endpoint is live at:
 
 ```
-POST /api/mcp
+https://personal-mcp-server.vercel.app/api/mcp
 ```
 
 Stateless JSON-RPC 2.0 over HTTP — no SSE or persistent connections needed.
 
-To connect via **Claude Desktop**, add this to your `claude_desktop_config.json`:
+### Claude Desktop
+
+1. Open the config file:
+   - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
+   - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
+2. Add the following (merge with any existing `mcpServers` entries):
 
 ```json
 {
   "mcpServers": {
     "ansh": {
-      "url": "https://your-deployed-url.vercel.app/api/mcp"
+      "url": "https://personal-mcp-server.vercel.app/api/mcp"
     }
   }
 }
 ```
+
+3. Restart Claude Desktop.
+4. You should see **ansh** appear in the MCP servers list. You can now ask Claude questions like *"Write a cover letter for this job based on Ansh's background."*
+
+### Claude Code (CLI)
+
+```bash
+claude mcp add --transport http ansh https://personal-mcp-server.vercel.app/api/mcp
+```
+
+### Other MCP Clients
+
+Any client that supports MCP over HTTP can connect — just point it at `https://personal-mcp-server.vercel.app/api/mcp`.
 
 ---
 
