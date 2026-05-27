@@ -44,10 +44,10 @@ export const experience: Experience[] = [
     role: "Undergraduate Researcher",
     period: "October 2024 – December 2025",
     description:
-      "Contributing to codeAssist, an open-source platform replacing Gradescope's pass/fail scoring with AI-generated code feedback.",
+      "Contributed to codeAssist, an open-source platform replacing Gradescope's pass/fail scoring with AI-generated code feedback.",
     technologies: ["React", "Flask", "REST APIs", "Selenium", "Python"],
     highlights: [
-      "Building codeAssist, an open-source tool that replaces Gradescope's pass/fail scoring with AI-generated personalized code feedback",
+      "Contributed to codeAssist, an open-source tool that replaces Gradescope's pass/fail scoring with AI-generated personalized code feedback",
       "Built 5+ full-stack features across React frontend and Flask REST API backend",
       "Wrote end-to-end tests with Selenium to validate feedback generation workflows",
     ],
