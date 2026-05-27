@@ -85,6 +85,12 @@ export const tools: Tool[] = [
       required: ["id"],
     },
     handler: async ({ id }) => {
+      if (typeof id !== "string") {
+        return {
+          content: [{ type: "text", text: `Missing required argument: "id". Available IDs: ${projects.map((p) => p.id).join(", ")}` }],
+          isError: true,
+        };
+      }
       const project = projects.find((p) => p.id === id);
       if (!project) {
         return {

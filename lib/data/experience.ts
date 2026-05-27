@@ -42,7 +42,7 @@ export const experience: Experience[] = [
     id: "ut-austin-research",
     company: "UT Austin",
     role: "Undergraduate Researcher",
-    period: "October 2024 – December 2025",
+    period: "October 2024 – December 2024",
     description:
       "Contributed to codeAssist, an open-source platform replacing Gradescope's pass/fail scoring with AI-generated code feedback.",
     technologies: ["React", "Flask", "REST APIs", "Selenium", "Python"],

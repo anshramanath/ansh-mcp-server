@@ -105,11 +105,12 @@ export default function Home() {
           <h2 className="text-xs uppercase tracking-widest text-zinc-500 mb-3">Example Prompts</h2>
           <div className="space-y-2">
             {[
-              "Write a cover letter for this job description based on Ansh's background.",
-              "What projects show Ansh can ship mobile apps?",
-              "Where has Ansh used AI APIs across his work?",
-              "Does Ansh have any experience with Swift?",
-              "Does this guy do anything besides code?",
+                "What's Ansh's tech stack?",
+                "Write a cold email to a fintech hiring manager based on Ansh's background.",
+                "If Ansh were a JavaScript framework, which one would he be?",
+                "Where has Ansh used AI APIs across his projects?",
+                "Does Ansh do anything besides stare at a screen?",
+                "Would you hire Ansh for a senior ML role? Be honest.",
             ].map((prompt) => (
               <div
                 key={prompt}
