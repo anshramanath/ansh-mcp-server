@@ -37,7 +37,7 @@ export const tools: Tool[] = [
     name: "list_projects",
     description:
       "Returns Ansh's projects. Optionally filter by technology or tag. " +
-      "Each project includes name, description, tech stack, tags, resume-style highlights, period, and links (url, github) where available.",
+      "Each project includes name, description, tech stack, tags, resume-style highlights, and links (url, github) where available.",
     inputSchema: {
       type: "object",
       properties: {
@@ -172,7 +172,13 @@ export const tools: Tool[] = [
       required: ["technology"],
     },
     handler: async ({ technology }) => {
-      const tech = (technology as string).toLowerCase();
+      if (typeof technology !== "string") {
+        return {
+          content: [{ type: "text", text: 'Missing required argument: "technology"' }],
+          isError: true,
+        };
+      }
+      const tech = technology.toLowerCase();
 
       const matchingProjects = projects.filter((p) =>
         p.technologies.some((t) => t.toLowerCase().includes(tech))
@@ -186,7 +192,6 @@ export const tools: Tool[] = [
         projects: matchingProjects.map((p) => ({
           id: p.id,
           name: p.name,
-          period: p.period,
           highlights: p.highlights,
         })),
         experience: matchingExperience.map((e) => ({

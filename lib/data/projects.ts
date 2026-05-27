@@ -7,7 +7,6 @@ export interface Project {
   highlights: string[];
   url?: string;
   github?: string;
-  period?: string;
 }
 
 export const projects: Project[] = [
