@@ -1,4 +1,4 @@
-# 🤖 Ansh's MCP Server
+# ⚡ Ansh's MCP Server
 
 A personal [Model Context Protocol](https://modelcontextprotocol.io) server that exposes my resume data as queryable tools for any MCP-compatible AI client (like Claude Desktop).
 
