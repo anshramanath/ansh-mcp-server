@@ -87,7 +87,16 @@ export async function POST(req: Request): Promise<Response> {
   }
 }
 
-// GET is used for SSE streams in stateful MCP setups — not needed here
 export async function GET(): Promise<Response> {
-  return new Response("SSE not implemented", { status: 405 });
+  return new Response(
+    `<!DOCTYPE html>
+<html>
+  <head><title>ansh-mcp-server</title></head>
+  <body style="margin:0;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;font-family:monospace;color:white;">
+    <p style="margin-bottom:16px;font-size:18px;">silly monkey, wrong place!</p>
+    <img src="/silly.png" style="max-height:80vh;max-width:100vw;object-fit:contain;" />
+  </body>
+</html>`,
+    { status: 200, headers: { "Content-Type": "text/html" } }
+  );
 }
