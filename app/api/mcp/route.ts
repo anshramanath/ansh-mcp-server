@@ -1,7 +1,7 @@
 import { tools } from "@/lib/tools";
 
 const PROTOCOL_VERSION = "2024-11-05";
-const SERVER_INFO = { name: "ansh-personal-context", version: "1.0.0" };
+const SERVER_INFO = { name: "ansh-mcp-server", version: "1.0.0" };
 
 const CORS_HEADERS = {
   "Access-Control-Allow-Origin": "*",
