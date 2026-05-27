@@ -34,16 +34,16 @@ export default function Home() {
           <p className="text-zinc-400 text-sm leading-relaxed">{profile.summary}</p>
           <p className="text-zinc-400 text-sm leading-relaxed mt-2">{profile.hobbies}</p>
           <div className="mt-4 flex gap-4 text-xs text-zinc-500">
-            <a href={profile.links.github} className="hover:text-zinc-300 transition-colors">
+            <a href={profile.links.github} className="hover:text-zinc-300 transition-colors" target="_blank" rel="noopener noreferrer">
               GitHub
             </a>
-            <a href={profile.links.linkedin} className="hover:text-zinc-300 transition-colors">
+            <a href={profile.links.linkedin} className="hover:text-zinc-300 transition-colors" target="_blank" rel="noopener noreferrer">
               LinkedIn
             </a>
-            <a href={profile.links.portfolio} className="hover:text-zinc-300 transition-colors">
+            <a href={profile.links.portfolio} className="hover:text-zinc-300 transition-colors" target="_blank" rel="noopener noreferrer">
               Portfolio
             </a>
-            <a href={`mailto:${profile.email}`} className="hover:text-zinc-300 transition-colors">
+            <a href={`mailto:${profile.email}`} className="hover:text-zinc-300 transition-colors" target="_blank" rel="noopener noreferrer">
               {profile.email}
             </a>
           </div>
