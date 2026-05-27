@@ -53,7 +53,7 @@ export default function Home() {
         <section>
           <h2 className="text-xs uppercase tracking-widest text-zinc-500 mb-3">MCP Endpoint</h2>
           <div className="bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 flex items-center justify-between">
-            <code className="text-sm text-emerald-400">/api/mcp</code>
+            <code className="text-sm text-emerald-400">https://ansh-mcp-server.vercel.app/api/mcp</code>
             <span className="text-xs text-zinc-600">JSON-RPC over HTTP · stateless</span>
           </div>
           <p className="mt-2 text-xs text-zinc-600">
